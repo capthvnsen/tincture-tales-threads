@@ -32,38 +32,77 @@ const Navigation = () => {
             : 'bg-gold/0 group-hover:bg-gold/30 group-hover:scale-105'
         }`} />
         
-        {/* Bottle Body */}
-        <div className={`relative w-12 h-16 rounded-b-xl border-2 transition-all duration-300 ${
-          isActive
-            ? 'border-gold bg-gradient-to-b from-gold/20 to-gold/40'
-            : 'border-gold/50 bg-gradient-to-b from-muted/30 to-muted/60 group-hover:border-gold group-hover:from-gold/10 group-hover:to-gold/20'
-        }`}>
-          {/* Liquid */}
-          <div className={`absolute bottom-1 left-1 right-1 h-10 rounded-b-lg transition-all duration-500 ${
-            item.color === 'emerald' ? 'bg-gradient-to-t from-emerald-600 to-emerald-400' :
-            item.color === 'purple' ? 'bg-gradient-to-t from-purple-600 to-purple-400' :
-            item.color === 'blue' ? 'bg-gradient-to-t from-blue-600 to-blue-400' :
-            item.color === 'amber' ? 'bg-gradient-to-t from-amber-600 to-amber-400' :
-            'bg-gradient-to-t from-rose-600 to-rose-400'
-          } group-hover:animate-pulse`}>
-            {/* Bubbles */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="absolute top-2 left-2 w-1 h-1 bg-white/60 rounded-full animate-ping" style={{ animationDelay: '0s' }} />
-              <div className="absolute top-4 right-2 w-1 h-1 bg-white/60 rounded-full animate-ping" style={{ animationDelay: '0.5s' }} />
-              <div className="absolute top-6 left-3 w-0.5 h-0.5 bg-white/60 rounded-full animate-ping" style={{ animationDelay: '1s' }} />
+        {/* Antique Bottle Container */}
+        <div className="relative">
+          {/* Cork */}
+          <div className={`relative z-10 mx-auto w-6 h-3 rounded-t-lg transition-all duration-300 ${
+            isActive
+              ? 'bg-gradient-to-b from-earth-brown to-earth-light border border-earth-brown shadow-sm'
+              : 'bg-gradient-to-b from-earth-brown/80 to-earth-light/60 border border-earth-brown/60 group-hover:from-earth-brown group-hover:to-earth-light group-hover:border-earth-brown'
+          }`}>
+            {/* Cork texture lines */}
+            <div className="absolute inset-1 space-y-0.5">
+              <div className="h-0.5 bg-earth-brown/40 rounded"></div>
+              <div className="h-0.5 bg-earth-brown/40 rounded"></div>
             </div>
           </div>
           
-          {/* Cork */}
-          <div className={`absolute -top-2 left-3 right-3 h-3 rounded-t-sm transition-all duration-300 ${
+          {/* Bottle Neck */}
+          <div className={`relative mx-auto w-4 h-4 transition-all duration-300 ${
             isActive
-              ? 'bg-earth-brown border border-earth-brown'
-              : 'bg-earth-brown/80 border border-earth-brown/60 group-hover:bg-earth-brown'
-          }`} />
+              ? 'bg-gradient-to-b from-parchment/30 to-parchment/20 border-x-2 border-gold shadow-inner'
+              : 'bg-gradient-to-b from-parchment/20 to-parchment/10 border-x-2 border-gold/50 group-hover:border-gold group-hover:from-parchment/25 group-hover:to-parchment/15'
+          }`}>
+            {/* Antique glass texture */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+          </div>
+          
+          {/* Bottle Body - Bulbous Shape */}
+          <div className={`relative w-14 h-14 mx-auto transition-all duration-300 ${
+            isActive
+              ? 'bg-gradient-to-b from-parchment/30 to-parchment/20 border-2 border-gold shadow-lg'
+              : 'bg-gradient-to-b from-parchment/20 to-parchment/10 border-2 border-gold/50 group-hover:border-gold group-hover:from-parchment/25 group-hover:to-parchment/15'
+          }`}
+          style={{
+            borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'
+          }}>
+            {/* Antique glass shine effect */}
+            <div className="absolute top-2 left-2 w-3 h-6 bg-gradient-to-br from-white/30 to-transparent rounded-full"></div>
+            
+            {/* Aged glass texture */}
+            <div className="absolute inset-1 rounded-full opacity-30">
+              <div className="w-full h-full bg-gradient-to-br from-transparent via-earth-brown/10 to-earth-brown/20 rounded-full"></div>
+            </div>
+            
+            {/* Liquid - fills bulb shape */}
+            <div className={`absolute bottom-1 left-1 right-1 transition-all duration-500 ${
+              item.color === 'emerald' ? 'bg-gradient-to-t from-emerald-700 to-emerald-500' :
+              item.color === 'purple' ? 'bg-gradient-to-t from-purple-700 to-purple-500' :
+              item.color === 'blue' ? 'bg-gradient-to-t from-blue-700 to-blue-500' :
+              item.color === 'amber' ? 'bg-gradient-to-t from-amber-700 to-amber-500' :
+              'bg-gradient-to-t from-rose-700 to-rose-500'
+            } group-hover:animate-pulse`}
+            style={{
+              height: '75%',
+              borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
+              filter: 'brightness(0.9) saturate(1.2)'
+            }}>
+              {/* Liquid surface shine */}
+              <div className="absolute top-1 left-2 right-2 h-1 bg-gradient-to-r from-transparent via-white/40 to-transparent rounded-full"></div>
+              
+              {/* Bubbles */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute top-4 left-3 w-1 h-1 bg-white/70 rounded-full animate-ping" style={{ animationDelay: '0s' }} />
+                <div className="absolute top-6 right-3 w-1 h-1 bg-white/70 rounded-full animate-ping" style={{ animationDelay: '0.5s' }} />
+                <div className="absolute top-8 left-4 w-0.5 h-0.5 bg-white/70 rounded-full animate-ping" style={{ animationDelay: '1s' }} />
+                <div className="absolute top-5 right-4 w-0.5 h-0.5 bg-white/70 rounded-full animate-ping" style={{ animationDelay: '1.5s' }} />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       
-      {/* Label */}
+      {/* Antique Label */}
       <div className={`mt-2 text-xs font-medium transition-all duration-300 ${
         isActive 
           ? 'text-gold scale-110' 

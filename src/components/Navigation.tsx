@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ShoppingCart, Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import logoImage from '@/assets/logo.png';
 
 const Navigation = () => {
   const location = useLocation();
@@ -11,11 +12,11 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
   
   const navItems = [
-    { path: '/', label: 'Home', color: 'emerald' },
-    { path: '/shop', label: 'Shop', color: 'purple' },
-    { path: '/custom-orders', label: 'Custom Orders', color: 'blue' },
-    { path: '/about', label: 'Our Story', color: 'amber' },
-    { path: '/contact', label: 'Contact', color: 'rose' },
+    { path: '/', label: 'Home', color: 'forest-green' },
+    { path: '/shop', label: 'Shop', color: 'earth-brown' },
+    { path: '/custom-orders', label: 'Custom Orders', color: 'forest-green' },
+    { path: '/about', label: 'Our Story', color: 'earth-brown' },
+    { path: '/contact', label: 'Contact', color: 'forest-green' },
   ];
 
   const PotionBottle = ({ item, isActive }: { item: typeof navItems[0], isActive: boolean }) => (
@@ -25,17 +26,17 @@ const Navigation = () => {
     >
       {/* Potion Bottle */}
       <div className="relative">
-        {/* Bottle Glow Effect */}
+        {/* Bottle Glow Effect - Darker */}
         <div className={`absolute inset-0 rounded-full blur-lg transition-all duration-300 ${
           isActive 
-            ? 'bg-gold/40 scale-110' 
-            : 'bg-gold/0 group-hover:bg-gold/30 group-hover:scale-105'
+            ? 'bg-earth-brown/60 scale-110' 
+            : 'bg-earth-brown/0 group-hover:bg-forest-green/40 group-hover:scale-105'
         }`} />
         
         {/* Antique Bottle Container */}
         <div className="relative">
-          {/* Cork */}
-          <div className={`relative z-10 mx-auto w-6 h-3 rounded-t-lg transition-all duration-300 ${
+          {/* Cork - Smaller */}
+          <div className={`relative z-10 mx-auto w-4 h-2 rounded-t-lg transition-all duration-300 ${
             isActive
               ? 'bg-gradient-to-b from-earth-brown to-earth-light border border-earth-brown shadow-sm'
               : 'bg-gradient-to-b from-earth-brown/80 to-earth-light/60 border border-earth-brown/60 group-hover:from-earth-brown group-hover:to-earth-light group-hover:border-earth-brown'
@@ -43,25 +44,24 @@ const Navigation = () => {
             {/* Cork texture lines */}
             <div className="absolute inset-1 space-y-0.5">
               <div className="h-0.5 bg-earth-brown/40 rounded"></div>
-              <div className="h-0.5 bg-earth-brown/40 rounded"></div>
             </div>
           </div>
           
-          {/* Bottle Neck */}
-          <div className={`relative mx-auto w-4 h-4 transition-all duration-300 ${
+          {/* Bottle Neck - Smaller */}
+          <div className={`relative mx-auto w-3 h-3 transition-all duration-300 ${
             isActive
-              ? 'bg-gradient-to-b from-parchment/30 to-parchment/20 border-x-2 border-gold shadow-inner'
-              : 'bg-gradient-to-b from-parchment/20 to-parchment/10 border-x-2 border-gold/50 group-hover:border-gold group-hover:from-parchment/25 group-hover:to-parchment/15'
+              ? 'bg-gradient-to-b from-parchment/30 to-parchment/20 border-x-2 border-earth-brown shadow-inner'
+              : 'bg-gradient-to-b from-parchment/20 to-parchment/10 border-x-2 border-earth-brown/50 group-hover:border-earth-brown group-hover:from-parchment/25 group-hover:to-parchment/15'
           }`}>
             {/* Antique glass texture */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
           </div>
           
-          {/* Bottle Body - Bulbous Shape */}
-          <div className={`relative w-14 h-14 mx-auto transition-all duration-300 ${
+          {/* Bottle Body - Smaller Bulbous Shape */}
+          <div className={`relative w-10 h-10 mx-auto transition-all duration-300 ${
             isActive
-              ? 'bg-gradient-to-b from-parchment/30 to-parchment/20 border-2 border-gold shadow-lg'
-              : 'bg-gradient-to-b from-parchment/20 to-parchment/10 border-2 border-gold/50 group-hover:border-gold group-hover:from-parchment/25 group-hover:to-parchment/15'
+              ? 'bg-gradient-to-b from-parchment/30 to-parchment/20 border-2 border-earth-brown shadow-lg'
+              : 'bg-gradient-to-b from-parchment/20 to-parchment/10 border-2 border-earth-brown/50 group-hover:border-earth-brown group-hover:from-parchment/25 group-hover:to-parchment/15'
           }`}
           style={{
             borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'
@@ -74,13 +74,11 @@ const Navigation = () => {
               <div className="w-full h-full bg-gradient-to-br from-transparent via-earth-brown/10 to-earth-brown/20 rounded-full"></div>
             </div>
             
-            {/* Liquid - fills bulb shape */}
+            {/* Liquid - darker moody colors */}
             <div className={`absolute bottom-1 left-1 right-1 transition-all duration-500 ${
-              item.color === 'emerald' ? 'bg-gradient-to-t from-emerald-700 to-emerald-500' :
-              item.color === 'purple' ? 'bg-gradient-to-t from-purple-700 to-purple-500' :
-              item.color === 'blue' ? 'bg-gradient-to-t from-blue-700 to-blue-500' :
-              item.color === 'amber' ? 'bg-gradient-to-t from-amber-700 to-amber-500' :
-              'bg-gradient-to-t from-rose-700 to-rose-500'
+              item.color === 'forest-green' ? 'bg-gradient-to-t from-green-900 to-green-700' :
+              item.color === 'earth-brown' ? 'bg-gradient-to-t from-amber-900 to-amber-700' :
+              'bg-gradient-to-t from-green-900 to-green-700'
             } group-hover:animate-pulse`}
             style={{
               height: '75%',
@@ -140,35 +138,45 @@ const Navigation = () => {
   );
 
   return (
-    <nav className="sticky top-0 z-50 shadow-lg" style={{
-      background: 'linear-gradient(135deg, hsl(var(--earth-brown)) 0%, hsl(var(--forest-green)) 100%)',
-      borderBottom: '3px solid hsl(var(--gold) / 0.3)'
+    <nav className="fixed top-0 w-full z-50 shadow-2xl" style={{
+      background: 'linear-gradient(135deg, hsl(var(--earth-brown)) 0%, hsl(var(--earth-light)) 50%, hsl(var(--forest-green)) 100%)',
+      borderBottom: '4px solid hsl(var(--earth-brown) / 0.8)'
     }}>
-      {/* Alchemist Shelf Texture */}
-      <div className="absolute inset-0 opacity-10" style={{
+      {/* Tavern Roof Texture - Wood planks and aged effect */}
+      <div className="absolute inset-0 opacity-20" style={{
         backgroundImage: `
           repeating-linear-gradient(
             90deg,
-            transparent,
-            transparent 2px,
-            hsl(var(--earth-brown)) 2px,
-            hsl(var(--earth-brown)) 4px
+            hsl(var(--earth-brown) / 0.3) 0px,
+            hsl(var(--earth-brown) / 0.5) 2px,
+            hsl(var(--earth-light) / 0.3) 2px,
+            hsl(var(--earth-light) / 0.5) 6px,
+            hsl(var(--earth-brown) / 0.3) 6px,
+            hsl(var(--earth-brown) / 0.5) 8px
           ),
           repeating-linear-gradient(
             0deg,
-            transparent,
-            transparent 20px,
-            hsl(var(--gold) / 0.1) 20px,
-            hsl(var(--gold) / 0.1) 22px
+            transparent 0px,
+            hsl(var(--earth-brown) / 0.2) 20px,
+            hsl(var(--earth-brown) / 0.4) 22px,
+            transparent 22px
           )
         `
       }} />
+      
+      {/* Tavern roof shadow */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-black/30 to-transparent"></div>
       
       <div className="container mx-auto px-4 relative">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 hover-lift relative z-10">
-            <div className="text-2xl md:text-3xl font-bold medieval-heading">
+            <img 
+              src={logoImage} 
+              alt="Tinctures, Odds, & Ends" 
+              className="h-12 w-auto"
+            />
+            <div className="text-lg md:text-xl font-bold medieval-heading hidden sm:block">
               Tinctures, Odds, & Ends
             </div>
           </Link>

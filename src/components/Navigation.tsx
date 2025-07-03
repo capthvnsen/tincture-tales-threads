@@ -4,43 +4,47 @@ import { Button } from '@/components/ui/button';
 import { ShoppingCart, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import logoImage from '@/assets/logo.png';
-
 const Navigation = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
   const isActive = (path: string) => location.pathname === path;
-  
-  const navItems = [
-    { path: '/', label: 'Home', color: 'forest-green' },
-    { path: '/shop', label: 'Shop', color: 'earth-brown' },
-    { path: '/custom-orders', label: 'Custom Orders', color: 'forest-green' },
-    { path: '/about', label: 'Our Story', color: 'earth-brown' },
-    { path: '/contact', label: 'Contact', color: 'forest-green' },
-  ];
-
-  const PotionBottle = ({ item, isActive }: { item: typeof navItems[0], isActive: boolean }) => (
-    <Link
-      to={item.path}
-      className="group relative flex flex-col items-center transition-all duration-300 hover:-translate-y-2"
-    >
+  const navItems = [{
+    path: '/',
+    label: 'Home',
+    color: 'forest-green'
+  }, {
+    path: '/shop',
+    label: 'Shop',
+    color: 'earth-brown'
+  }, {
+    path: '/custom-orders',
+    label: 'Custom Orders',
+    color: 'forest-green'
+  }, {
+    path: '/about',
+    label: 'Our Story',
+    color: 'earth-brown'
+  }, {
+    path: '/contact',
+    label: 'Contact',
+    color: 'forest-green'
+  }];
+  const PotionBottle = ({
+    item,
+    isActive
+  }: {
+    item: typeof navItems[0];
+    isActive: boolean;
+  }) => <Link to={item.path} className="group relative flex flex-col items-center transition-all duration-300 hover:-translate-y-2">
       {/* Potion Bottle */}
       <div className="relative">
         {/* Bottle Glow Effect - Darker */}
-        <div className={`absolute inset-0 rounded-full blur-lg transition-all duration-300 ${
-          isActive 
-            ? 'bg-earth-brown/60 scale-110' 
-            : 'bg-earth-brown/0 group-hover:bg-forest-green/40 group-hover:scale-105'
-        }`} />
+        <div className={`absolute inset-0 rounded-full blur-lg transition-all duration-300 ${isActive ? 'bg-earth-brown/60 scale-110' : 'bg-earth-brown/0 group-hover:bg-forest-green/40 group-hover:scale-105'}`} />
         
         {/* Antique Bottle Container */}
         <div className="relative">
           {/* Cork - Smaller */}
-          <div className={`relative z-10 mx-auto w-4 h-2 rounded-t-lg transition-all duration-300 ${
-            isActive
-              ? 'bg-gradient-to-b from-earth-brown to-earth-light border border-earth-brown shadow-sm'
-              : 'bg-gradient-to-b from-earth-brown/80 to-earth-light/60 border border-earth-brown/60 group-hover:from-earth-brown group-hover:to-earth-light group-hover:border-earth-brown'
-          }`}>
+          <div className={`relative z-10 mx-auto w-4 h-2 rounded-t-lg transition-all duration-300 ${isActive ? 'bg-gradient-to-b from-earth-brown to-earth-light border border-earth-brown shadow-sm' : 'bg-gradient-to-b from-earth-brown/80 to-earth-light/60 border border-earth-brown/60 group-hover:from-earth-brown group-hover:to-earth-light group-hover:border-earth-brown'}`}>
             {/* Cork texture lines */}
             <div className="absolute inset-1 space-y-0.5">
               <div className="h-0.5 bg-earth-brown/40 rounded"></div>
@@ -48,24 +52,15 @@ const Navigation = () => {
           </div>
           
           {/* Bottle Neck - Smaller */}
-          <div className={`relative mx-auto w-3 h-3 transition-all duration-300 ${
-            isActive
-              ? 'bg-gradient-to-b from-parchment/30 to-parchment/20 border-x-2 border-earth-brown shadow-inner'
-              : 'bg-gradient-to-b from-parchment/20 to-parchment/10 border-x-2 border-earth-brown/50 group-hover:border-earth-brown group-hover:from-parchment/25 group-hover:to-parchment/15'
-          }`}>
+          <div className={`relative mx-auto w-3 h-3 transition-all duration-300 ${isActive ? 'bg-gradient-to-b from-parchment/30 to-parchment/20 border-x-2 border-earth-brown shadow-inner' : 'bg-gradient-to-b from-parchment/20 to-parchment/10 border-x-2 border-earth-brown/50 group-hover:border-earth-brown group-hover:from-parchment/25 group-hover:to-parchment/15'}`}>
             {/* Antique glass texture */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
           </div>
           
           {/* Bottle Body - Smaller Bulbous Shape */}
-          <div className={`relative w-10 h-10 mx-auto transition-all duration-300 ${
-            isActive
-              ? 'bg-gradient-to-b from-parchment/30 to-parchment/20 border-2 border-earth-brown shadow-lg'
-              : 'bg-gradient-to-b from-parchment/20 to-parchment/10 border-2 border-earth-brown/50 group-hover:border-earth-brown group-hover:from-parchment/25 group-hover:to-parchment/15'
-          }`}
-          style={{
-            borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'
-          }}>
+          <div className={`relative w-10 h-10 mx-auto transition-all duration-300 ${isActive ? 'bg-gradient-to-b from-parchment/30 to-parchment/20 border-2 border-earth-brown shadow-lg' : 'bg-gradient-to-b from-parchment/20 to-parchment/10 border-2 border-earth-brown/50 group-hover:border-earth-brown group-hover:from-parchment/25 group-hover:to-parchment/15'}`} style={{
+          borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'
+        }}>
             {/* Antique glass shine effect */}
             <div className="absolute top-2 left-2 w-3 h-6 bg-gradient-to-br from-white/30 to-transparent rounded-full"></div>
             
@@ -75,25 +70,28 @@ const Navigation = () => {
             </div>
             
             {/* Liquid - darker moody colors */}
-            <div className={`absolute bottom-1 left-1 right-1 transition-all duration-500 ${
-              item.color === 'forest-green' ? 'bg-gradient-to-t from-green-900 to-green-700' :
-              item.color === 'earth-brown' ? 'bg-gradient-to-t from-amber-900 to-amber-700' :
-              'bg-gradient-to-t from-green-900 to-green-700'
-            } group-hover:animate-pulse`}
-            style={{
-              height: '75%',
-              borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
-              filter: 'brightness(0.9) saturate(1.2)'
-            }}>
+            <div className={`absolute bottom-1 left-1 right-1 transition-all duration-500 ${item.color === 'forest-green' ? 'bg-gradient-to-t from-green-900 to-green-700' : item.color === 'earth-brown' ? 'bg-gradient-to-t from-amber-900 to-amber-700' : 'bg-gradient-to-t from-green-900 to-green-700'} group-hover:animate-pulse`} style={{
+            height: '75%',
+            borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
+            filter: 'brightness(0.9) saturate(1.2)'
+          }}>
               {/* Liquid surface shine */}
               <div className="absolute top-1 left-2 right-2 h-1 bg-gradient-to-r from-transparent via-white/40 to-transparent rounded-full"></div>
               
               {/* Bubbles */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute top-4 left-3 w-1 h-1 bg-white/70 rounded-full animate-ping" style={{ animationDelay: '0s' }} />
-                <div className="absolute top-6 right-3 w-1 h-1 bg-white/70 rounded-full animate-ping" style={{ animationDelay: '0.5s' }} />
-                <div className="absolute top-8 left-4 w-0.5 h-0.5 bg-white/70 rounded-full animate-ping" style={{ animationDelay: '1s' }} />
-                <div className="absolute top-5 right-4 w-0.5 h-0.5 bg-white/70 rounded-full animate-ping" style={{ animationDelay: '1.5s' }} />
+                <div className="absolute top-4 left-3 w-1 h-1 bg-white/70 rounded-full animate-ping" style={{
+                animationDelay: '0s'
+              }} />
+                <div className="absolute top-6 right-3 w-1 h-1 bg-white/70 rounded-full animate-ping" style={{
+                animationDelay: '0.5s'
+              }} />
+                <div className="absolute top-8 left-4 w-0.5 h-0.5 bg-white/70 rounded-full animate-ping" style={{
+                animationDelay: '1s'
+              }} />
+                <div className="absolute top-5 right-4 w-0.5 h-0.5 bg-white/70 rounded-full animate-ping" style={{
+                animationDelay: '1.5s'
+              }} />
               </div>
             </div>
           </div>
@@ -101,18 +99,11 @@ const Navigation = () => {
       </div>
       
       {/* Antique Label */}
-      <div className={`mt-2 text-xs font-medium transition-all duration-300 ${
-        isActive 
-          ? 'text-gold scale-110' 
-          : 'text-foreground/80 group-hover:text-gold group-hover:scale-105'
-      }`}>
+      <div className={`mt-2 text-xs font-medium transition-all duration-300 ${isActive ? 'text-gold scale-110' : 'text-foreground/80 group-hover:text-gold group-hover:scale-105'}`}>
         {item.label}
       </div>
-    </Link>
-  );
-
-  const Cauldron = () => (
-    <Button variant="ghost" size="icon" className="group relative text-gold hover:text-gold-dark transition-all duration-300 hover:-translate-y-1">
+    </Link>;
+  const Cauldron = () => <Button variant="ghost" size="icon" className="group relative text-gold hover:text-gold-dark transition-all duration-300 hover:-translate-y-1">
       {/* Cauldron Glow */}
       <div className="absolute inset-0 rounded-full bg-gold/0 group-hover:bg-gold/20 blur-md transition-all duration-300" />
       
@@ -134,17 +125,14 @@ const Navigation = () => {
           <div className="w-0.5 h-3 bg-gradient-to-t from-gold/60 to-transparent animate-pulse" />
         </div>
       </div>
-    </Button>
-  );
-
-  return (
-    <nav className="fixed top-0 w-full z-50 shadow-2xl" style={{
-      background: 'linear-gradient(135deg, hsl(var(--earth-brown)) 0%, hsl(var(--earth-light)) 50%, hsl(var(--forest-green)) 100%)',
-      borderBottom: '4px solid hsl(var(--earth-brown) / 0.8)'
-    }}>
+    </Button>;
+  return <nav className="fixed top-0 w-full z-50 shadow-2xl" style={{
+    background: 'linear-gradient(135deg, hsl(var(--earth-brown)) 0%, hsl(var(--earth-light)) 50%, hsl(var(--forest-green)) 100%)',
+    borderBottom: '4px solid hsl(var(--earth-brown) / 0.8)'
+  }}>
       {/* Tavern Roof Texture - Wood planks and aged effect */}
       <div className="absolute inset-0 opacity-20" style={{
-        backgroundImage: `
+      backgroundImage: `
           repeating-linear-gradient(
             90deg,
             hsl(var(--earth-brown) / 0.3) 0px,
@@ -162,7 +150,7 @@ const Navigation = () => {
             transparent 22px
           )
         `
-      }} />
+    }} />
       
       {/* Tavern roof shadow */}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-black/30 to-transparent"></div>
@@ -171,25 +159,13 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 hover-lift relative z-10">
-            <img 
-              src={logoImage} 
-              alt="Tinctures, Odds, & Ends" 
-              className="h-12 w-auto"
-            />
-            <div className="text-lg md:text-xl font-bold medieval-heading hidden sm:block">
-              Tinctures, Odds, & Ends
-            </div>
+            <img src={logoImage} alt="Tinctures, Odds, & Ends" className="h-12 w-auto" />
+            
           </Link>
 
           {/* Desktop Navigation - Potion Shelf */}
           <div className="hidden md:flex items-end space-x-6 pb-2">
-            {navItems.map((item) => (
-              <PotionBottle 
-                key={item.path} 
-                item={item} 
-                isActive={isActive(item.path)} 
-              />
-            ))}
+            {navItems.map(item => <PotionBottle key={item.path} item={item} isActive={isActive(item.path)} />)}
             
             {/* Cauldron Cart */}
             <div className="ml-4">
@@ -199,33 +175,18 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gold relative z-10"
-            >
+            <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gold relative z-10">
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden border-t border-gold/30 py-4 relative z-10">
+        {isMenuOpen && <div className="md:hidden border-t border-gold/30 py-4 relative z-10">
             <div className="flex flex-col space-y-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`text-foreground hover:text-gold transition-colors duration-300 font-medium px-2 py-1 ${
-                    isActive(item.path) ? 'text-gold' : ''
-                  }`}
-                >
+              {navItems.map(item => <Link key={item.path} to={item.path} onClick={() => setIsMenuOpen(false)} className={`text-foreground hover:text-gold transition-colors duration-300 font-medium px-2 py-1 ${isActive(item.path) ? 'text-gold' : ''}`}>
                   {item.label}
-                </Link>
-              ))}
+                </Link>)}
               <div className="pt-2 border-t border-gold/30">
                 <Button variant="ghost" size="sm" className="text-gold hover:text-gold-dark">
                   <ShoppingCart className="h-5 w-5 mr-2" />
@@ -233,11 +194,8 @@ const Navigation = () => {
                 </Button>
               </div>
             </div>
-          </div>
-        )}
+          </div>}
       </div>
-    </nav>
-  );
+    </nav>;
 };
-
 export default Navigation;

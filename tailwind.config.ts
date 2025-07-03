@@ -52,27 +52,25 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Medieval fantasy color palette
-				gold: {
-					DEFAULT: 'hsl(var(--gold))',
-					dark: 'hsl(var(--gold-dark))'
+				// Rustic cabin color palette
+				'rustic-brown': {
+					DEFAULT: 'hsl(var(--rustic-brown))',
+					dark: 'hsl(var(--rustic-brown-dark))',
+					light: 'hsl(var(--rustic-brown-light))'
 				},
-				'forest-green': {
-					DEFAULT: 'hsl(var(--forest-green))',
-					light: 'hsl(var(--forest-light))'
+				'moss-green': {
+					DEFAULT: 'hsl(var(--moss-green))',
+					light: 'hsl(var(--moss-green-light))'
 				},
-				burgundy: {
-					DEFAULT: 'hsl(var(--burgundy))',
-					light: 'hsl(var(--burgundy-light))'
+				'aged-wood': {
+					DEFAULT: 'hsl(var(--aged-wood))',
+					light: 'hsl(var(--aged-wood-light))'
 				},
-				'burnt-orange': {
-					DEFAULT: 'hsl(var(--burnt-orange))',
-					light: 'hsl(var(--burnt-orange-light))'
-				},
-				'earth-brown': {
-					DEFAULT: 'hsl(var(--earth-brown))',
-					light: 'hsl(var(--earth-light))'
-				},
+				'emerald-potion': 'hsl(var(--emerald-potion))',
+				'purple-potion': 'hsl(var(--purple-potion))',
+				'sapphire-potion': 'hsl(var(--sapphire-potion))',
+				'amber-potion': 'hsl(var(--amber-potion))',
+				'crimson-potion': 'hsl(var(--crimson-potion))',
 				parchment: {
 					DEFAULT: 'hsl(var(--parchment))',
 					dark: 'hsl(var(--parchment-dark))'

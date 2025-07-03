@@ -46,32 +46,36 @@ All colors MUST be HSL.
     --input: 40 20% 20%;
     --ring: 45 75% 55%;
 
-    /* Custom medieval colors */
-    --gold: 45 75% 55%;
-    --gold-dark: 40 60% 45%;
-    --forest-green: 120 35% 25%;
-    --forest-light: 120 30% 35%;
-    --burgundy: 350 50% 35%;
-    --burgundy-light: 350 45% 45%;
-    --burnt-orange: 25 65% 35%;
-    --burnt-orange-light: 25 60% 45%;
-    --earth-brown: 30 35% 20%;
-    --earth-light: 30 30% 30%;
+    /* Rustic cabin colors */
+    --rustic-brown: 30 40% 25%;
+    --rustic-brown-dark: 30 45% 18%;
+    --rustic-brown-light: 30 35% 35%;
+    --moss-green: 120 25% 30%;
+    --moss-green-light: 120 20% 40%;
+    --aged-wood: 28 35% 22%;
+    --aged-wood-light: 28 30% 32%;
     
-    /* Medieval textures and effects */
+    /* Alchemy bottle colors */
+    --emerald-potion: 140 60% 15%;
+    --purple-potion: 270 50% 20%;
+    --sapphire-potion: 220 60% 18%;
+    --amber-potion: 35 65% 25%;
+    --crimson-potion: 0 60% 20%;
+    
+    /* Natural textures and effects */
     --parchment: 45 35% 85%;
     --parchment-dark: 40 25% 75%;
-    --shadow-medieval: 0 0% 0%;
+    --shadow-natural: 0 0% 0%;
     
-    /* Gradients */
-    --gradient-medieval: linear-gradient(135deg, hsl(var(--earth-brown)), hsl(var(--forest-green)));
-    --gradient-gold: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--burnt-orange)));
+    /* Wood grain gradients */
+    --gradient-wood: linear-gradient(135deg, hsl(var(--rustic-brown-dark)), hsl(var(--rustic-brown)), hsl(var(--aged-wood)));
+    --gradient-moss: linear-gradient(90deg, hsl(var(--moss-green)), hsl(var(--moss-green-light)));
     --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--card)));
     
-    /* Shadows */
-    --shadow-mystical: 0 10px 30px -10px hsl(var(--shadow-medieval) / 0.5);
-    --shadow-glow: 0 0 40px hsl(var(--gold) / 0.2);
-    --shadow-deep: 0 20px 60px -15px hsl(var(--shadow-medieval) / 0.7);
+    /* Natural shadows */
+    --shadow-wood: 0 8px 25px -8px hsl(var(--shadow-natural) / 0.4);
+    --shadow-bottle: 0 4px 15px -3px hsl(var(--shadow-natural) / 0.3);
+    --shadow-deep: 0 20px 60px -15px hsl(var(--shadow-natural) / 0.6);
 
     --radius: 0.5rem;
 

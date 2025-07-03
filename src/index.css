@@ -146,9 +146,9 @@ All colors MUST be HSL.
 }
 
 @layer components {
-  /* Medieval-themed component styles */
+  /* Rustic cabin-themed component styles */
   .medieval-border {
-    @apply border-2 border-gold/30 rounded-lg;
+    @apply border-2 border-rustic-brown/30 rounded-lg;
   }
   
   .parchment-bg {
@@ -156,11 +156,11 @@ All colors MUST be HSL.
   }
   
   .mystical-shadow {
-    box-shadow: var(--shadow-mystical);
+    box-shadow: var(--shadow-wood);
   }
   
   .glow-effect {
-    box-shadow: var(--shadow-glow);
+    box-shadow: var(--shadow-bottle);
   }
   
   .medieval-scroll {
@@ -169,39 +169,39 @@ All colors MUST be HSL.
   
   .medieval-scroll::before {
     content: "";
-    @apply absolute inset-0 bg-gradient-to-r from-earth-brown/20 via-transparent to-earth-brown/20 rounded-lg;
+    @apply absolute inset-0 bg-gradient-to-r from-rustic-brown/20 via-transparent to-rustic-brown/20 rounded-lg;
   }
   
-  /* Button variants for medieval theme */
+  /* Button variants for rustic theme */
   .btn-medieval {
-    @apply bg-gradient-to-r from-forest-green to-forest-light text-primary-foreground hover:from-forest-light hover:to-forest-green;
-    @apply border border-gold/30 rounded-lg px-6 py-3 font-semibold;
+    @apply bg-gradient-to-r from-moss-green to-moss-green-light text-primary-foreground hover:from-moss-green-light hover:to-moss-green;
+    @apply border border-rustic-brown/30 rounded-lg px-6 py-3 font-semibold;
     @apply transition-all duration-300 ease-in-out;
     @apply shadow-lg hover:shadow-xl;
   }
   
-  .btn-gold {
-    @apply bg-gradient-to-r from-gold to-burnt-orange text-background hover:from-burnt-orange hover:to-gold;
-    @apply border border-gold/50 rounded-lg px-6 py-3 font-semibold;
+  .btn-rustic {
+    @apply bg-gradient-to-r from-rustic-brown to-aged-wood text-background hover:from-aged-wood hover:to-rustic-brown;
+    @apply border border-rustic-brown/50 rounded-lg px-6 py-3 font-semibold;
     @apply transition-all duration-300 ease-in-out;
     @apply shadow-lg hover:shadow-xl;
   }
   
-  .btn-burgundy {
-    @apply bg-gradient-to-r from-burgundy to-burgundy-light text-accent-foreground hover:from-burgundy-light hover:to-burgundy;
-    @apply border border-burgundy/50 rounded-lg px-6 py-3 font-semibold;
+  .btn-moss {
+    @apply bg-gradient-to-r from-moss-green to-moss-green-light text-accent-foreground hover:from-moss-green-light hover:to-moss-green;
+    @apply border border-moss-green/50 rounded-lg px-6 py-3 font-semibold;
     @apply transition-all duration-300 ease-in-out;
     @apply shadow-lg hover:shadow-xl;
   }
   
   /* Text effects */
   .text-glow {
-    text-shadow: 0 0 10px hsl(var(--gold) / 0.5);
+    text-shadow: 0 0 10px hsl(var(--moss-green) / 0.5);
   }
   
   .medieval-heading {
-    @apply text-gold font-bold tracking-wide;
-    text-shadow: 2px 2px 4px hsl(var(--shadow-medieval) / 0.5);
+    @apply text-moss-green-light font-bold tracking-wide;
+    text-shadow: 2px 2px 4px hsl(var(--shadow-natural) / 0.5);
   }
   
   /* Card effects */
@@ -212,13 +212,13 @@ All colors MUST be HSL.
   
   /* Navigation styles */
   .medieval-nav {
-    @apply bg-gradient-to-r from-earth-brown to-forest-green;
-    @apply border-b-2 border-gold/30;
+    @apply bg-gradient-to-r from-rustic-brown to-moss-green;
+    @apply border-b-2 border-rustic-brown/30;
   }
   
   /* Input styles */
   .medieval-input {
-    @apply bg-input border-gold/30 focus:border-gold focus:ring-gold/20;
+    @apply bg-input border-rustic-brown/30 focus:border-moss-green focus:ring-moss-green/20;
     @apply rounded-lg px-4 py-2;
   }
   

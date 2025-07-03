@@ -18,6 +18,11 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        // Medieval themed variants
+        medieval: "bg-gradient-to-r from-forest-green to-forest-green-light text-primary-foreground hover:from-forest-green-light hover:to-forest-green border border-gold/30 shadow-lg hover:shadow-xl transition-all duration-300",
+        gold: "bg-gradient-to-r from-gold to-burnt-orange text-background hover:from-burnt-orange hover:to-gold border border-gold/50 shadow-lg hover:shadow-xl transition-all duration-300",
+        burgundy: "bg-gradient-to-r from-burgundy to-burgundy-light text-accent-foreground hover:from-burgundy-light hover:to-burgundy border border-burgundy/50 shadow-lg hover:shadow-xl transition-all duration-300",
+        parchment: "bg-parchment text-earth-brown hover:bg-parchment-dark border border-earth-brown/30 shadow-md hover:shadow-lg transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",

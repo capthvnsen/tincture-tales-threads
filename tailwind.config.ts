@@ -52,6 +52,31 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Medieval fantasy color palette
+				gold: {
+					DEFAULT: 'hsl(var(--gold))',
+					dark: 'hsl(var(--gold-dark))'
+				},
+				'forest-green': {
+					DEFAULT: 'hsl(var(--forest-green))',
+					light: 'hsl(var(--forest-light))'
+				},
+				burgundy: {
+					DEFAULT: 'hsl(var(--burgundy))',
+					light: 'hsl(var(--burgundy-light))'
+				},
+				'burnt-orange': {
+					DEFAULT: 'hsl(var(--burnt-orange))',
+					light: 'hsl(var(--burnt-orange-light))'
+				},
+				'earth-brown': {
+					DEFAULT: 'hsl(var(--earth-brown))',
+					light: 'hsl(var(--earth-light))'
+				},
+				parchment: {
+					DEFAULT: 'hsl(var(--parchment))',
+					dark: 'hsl(var(--parchment-dark))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

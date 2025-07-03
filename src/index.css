@@ -2,39 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Medieval Fantasy Design System - Tinctures, Odds, & Ends
+Rich autumnal colors inspired by ancient forests and castle interiors.
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base medieval theme - parchment and rich wood tones */
+    --background: 30 15% 8%;
+    --foreground: 45 25% 92%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card surfaces - darker parchment */
+    --card: 30 20% 12%;
+    --card-foreground: 45 25% 88%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Popover elements */
+    --popover: 30 25% 10%;
+    --popover-foreground: 45 25% 90%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - deep forest green */
+    --primary: 120 35% 25%;
+    --primary-foreground: 45 25% 95%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - warm burnt orange */
+    --secondary: 25 65% 35%;
+    --secondary-foreground: 45 25% 95%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted tones - darker wood */
+    --muted: 30 20% 18%;
+    --muted-foreground: 45 15% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - rich burgundy */
+    --accent: 350 50% 35%;
+    --accent-foreground: 45 25% 95%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Destructive states */
+    --destructive: 0 75% 45%;
+    --destructive-foreground: 45 25% 95%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders and inputs - subtle gold */
+    --border: 40 25% 25%;
+    --input: 40 20% 20%;
+    --ring: 45 75% 55%;
+
+    /* Custom medieval colors */
+    --gold: 45 75% 55%;
+    --gold-dark: 40 60% 45%;
+    --forest-green: 120 35% 25%;
+    --forest-light: 120 30% 35%;
+    --burgundy: 350 50% 35%;
+    --burgundy-light: 350 45% 45%;
+    --burnt-orange: 25 65% 35%;
+    --burnt-orange-light: 25 60% 45%;
+    --earth-brown: 30 35% 20%;
+    --earth-light: 30 30% 30%;
+    
+    /* Medieval textures and effects */
+    --parchment: 45 35% 85%;
+    --parchment-dark: 40 25% 75%;
+    --shadow-medieval: 0 0% 0%;
+    
+    /* Gradients */
+    --gradient-medieval: linear-gradient(135deg, hsl(var(--earth-brown)), hsl(var(--forest-green)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--burnt-orange)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--card)));
+    
+    /* Shadows */
+    --shadow-mystical: 0 10px 30px -10px hsl(var(--shadow-medieval) / 0.5);
+    --shadow-glow: 0 0 40px hsl(var(--gold) / 0.2);
+    --shadow-deep: 0 20px 60px -15px hsl(var(--shadow-medieval) / 0.7);
 
     --radius: 0.5rem;
 
@@ -100,6 +137,97 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-serif;
+  }
+}
+
+@layer components {
+  /* Medieval-themed component styles */
+  .medieval-border {
+    @apply border-2 border-gold/30 rounded-lg;
+  }
+  
+  .parchment-bg {
+    @apply bg-gradient-to-br from-card to-muted;
+  }
+  
+  .mystical-shadow {
+    box-shadow: var(--shadow-mystical);
+  }
+  
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .medieval-scroll {
+    @apply relative;
+  }
+  
+  .medieval-scroll::before {
+    content: "";
+    @apply absolute inset-0 bg-gradient-to-r from-earth-brown/20 via-transparent to-earth-brown/20 rounded-lg;
+  }
+  
+  /* Button variants for medieval theme */
+  .btn-medieval {
+    @apply bg-gradient-to-r from-forest-green to-forest-light text-primary-foreground hover:from-forest-light hover:to-forest-green;
+    @apply border border-gold/30 rounded-lg px-6 py-3 font-semibold;
+    @apply transition-all duration-300 ease-in-out;
+    @apply shadow-lg hover:shadow-xl;
+  }
+  
+  .btn-gold {
+    @apply bg-gradient-to-r from-gold to-burnt-orange text-background hover:from-burnt-orange hover:to-gold;
+    @apply border border-gold/50 rounded-lg px-6 py-3 font-semibold;
+    @apply transition-all duration-300 ease-in-out;
+    @apply shadow-lg hover:shadow-xl;
+  }
+  
+  .btn-burgundy {
+    @apply bg-gradient-to-r from-burgundy to-burgundy-light text-accent-foreground hover:from-burgundy-light hover:to-burgundy;
+    @apply border border-burgundy/50 rounded-lg px-6 py-3 font-semibold;
+    @apply transition-all duration-300 ease-in-out;
+    @apply shadow-lg hover:shadow-xl;
+  }
+  
+  /* Text effects */
+  .text-glow {
+    text-shadow: 0 0 10px hsl(var(--gold) / 0.5);
+  }
+  
+  .medieval-heading {
+    @apply text-gold font-bold tracking-wide;
+    text-shadow: 2px 2px 4px hsl(var(--shadow-medieval) / 0.5);
+  }
+  
+  /* Card effects */
+  .medieval-card {
+    @apply parchment-bg mystical-shadow medieval-border;
+    @apply p-6 rounded-lg;
+  }
+  
+  /* Navigation styles */
+  .medieval-nav {
+    @apply bg-gradient-to-r from-earth-brown to-forest-green;
+    @apply border-b-2 border-gold/30;
+  }
+  
+  /* Input styles */
+  .medieval-input {
+    @apply bg-input border-gold/30 focus:border-gold focus:ring-gold/20;
+    @apply rounded-lg px-4 py-2;
+  }
+  
+  /* Animation utilities */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+  
+  .fade-in {
+    @apply animate-in fade-in-0 duration-700;
+  }
+  
+  .slide-up {
+    @apply animate-in slide-in-from-bottom-4 duration-500;
   }
 }

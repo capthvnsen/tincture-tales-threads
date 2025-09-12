@@ -55,6 +55,12 @@ All colors MUST be HSL.
     --aged-wood: 28 35% 22%;
     --aged-wood-light: 28 30% 32%;
     
+    /* Antique walnut hardwood colors */
+    --walnut-dark: 25 55% 15%;
+    --walnut-brown: 30 45% 22%;
+    --walnut-medium: 28 40% 28%;
+    --walnut-light: 35 35% 35%;
+    
     /* Alchemy bottle colors */
     --emerald-potion: 140 60% 15%;
     --purple-potion: 270 50% 20%;
@@ -76,6 +82,7 @@ All colors MUST be HSL.
     --shadow-wood: 0 8px 25px -8px hsl(var(--shadow-natural) / 0.4);
     --shadow-bottle: 0 4px 15px -3px hsl(var(--shadow-natural) / 0.3);
     --shadow-deep: 0 20px 60px -15px hsl(var(--shadow-natural) / 0.6);
+    --shadow-walnut: 0 12px 35px -10px hsl(var(--walnut-dark) / 0.6);
 
     --radius: 0.5rem;
 

@@ -66,6 +66,13 @@ export default {
 					DEFAULT: 'hsl(var(--aged-wood))',
 					light: 'hsl(var(--aged-wood-light))'
 				},
+				// Antique walnut hardwood colors
+				'walnut': {
+					DEFAULT: 'hsl(var(--walnut-brown))',
+					dark: 'hsl(var(--walnut-dark))',
+					medium: 'hsl(var(--walnut-medium))',
+					light: 'hsl(var(--walnut-light))'
+				},
 				'emerald-potion': 'hsl(var(--emerald-potion))',
 				'purple-potion': 'hsl(var(--purple-potion))',
 				'sapphire-potion': 'hsl(var(--sapphire-potion))',

@@ -158,33 +158,54 @@ const Navigation = () => {
     </Button>;
 
   return <nav className="fixed top-0 w-full z-50" style={{
-    background: 'linear-gradient(135deg, hsl(var(--rustic-brown-dark)) 0%, hsl(var(--rustic-brown)) 40%, hsl(var(--aged-wood)) 70%, hsl(var(--moss-green)) 100%)',
-    borderBottom: '3px solid hsl(var(--rustic-brown-dark))',
-    boxShadow: 'var(--shadow-wood)'
+    background: 'linear-gradient(135deg, hsl(var(--walnut-dark)) 0%, hsl(var(--walnut-brown)) 25%, hsl(var(--walnut-medium)) 50%, hsl(var(--walnut-light)) 75%, hsl(var(--walnut-brown)) 100%)',
+    borderBottom: '4px solid hsl(var(--walnut-dark))',
+    boxShadow: 'var(--shadow-walnut)'
   }}>
-      {/* Rustic Wood Grain Texture */}
-      <div className="absolute inset-0 opacity-30" style={{
+      {/* Antique Walnut Wood Grain Texture */}
+      <div className="absolute inset-0 opacity-40" style={{
         backgroundImage: `
           repeating-linear-gradient(
             90deg,
-            hsl(var(--rustic-brown-dark) / 0.4) 0px,
-            hsl(var(--rustic-brown-dark) / 0.6) 1px,
-            hsl(var(--rustic-brown) / 0.3) 1px,
-            hsl(var(--rustic-brown) / 0.5) 8px,
-            hsl(var(--aged-wood) / 0.3) 8px,
-            hsl(var(--aged-wood) / 0.5) 16px,
-            hsl(var(--rustic-brown-dark) / 0.4) 16px,
-            hsl(var(--rustic-brown-dark) / 0.6) 17px
+            hsl(var(--walnut-dark) / 0.8) 0px,
+            hsl(var(--walnut-dark) / 0.9) 1px,
+            hsl(var(--walnut-brown) / 0.6) 1px,
+            hsl(var(--walnut-brown) / 0.8) 12px,
+            hsl(var(--walnut-medium) / 0.4) 12px,
+            hsl(var(--walnut-medium) / 0.7) 24px,
+            hsl(var(--walnut-light) / 0.3) 24px,
+            hsl(var(--walnut-light) / 0.6) 32px,
+            hsl(var(--walnut-brown) / 0.5) 32px,
+            hsl(var(--walnut-brown) / 0.8) 40px,
+            hsl(var(--walnut-dark) / 0.7) 40px,
+            hsl(var(--walnut-dark) / 0.9) 41px
           ),
           repeating-linear-gradient(
             0deg,
             transparent 0px,
-            hsl(var(--rustic-brown-dark) / 0.15) 32px,
-            hsl(var(--rustic-brown-dark) / 0.25) 34px,
-            transparent 34px
+            hsl(var(--walnut-dark) / 0.15) 48px,
+            hsl(var(--walnut-dark) / 0.3) 50px,
+            transparent 50px
+          ),
+          linear-gradient(
+            45deg,
+            hsl(var(--walnut-dark) / 0.1) 0%,
+            transparent 25%,
+            hsl(var(--walnut-brown) / 0.1) 50%,
+            transparent 75%,
+            hsl(var(--walnut-dark) / 0.1) 100%
           )
         `
       }} />
+
+      {/* Walnut Wood Knots and Character Marks */}
+      <div className="absolute inset-0 opacity-25">
+        <div className="absolute top-3 left-16 w-6 h-3 bg-walnut-dark/60 rounded-full blur-sm transform rotate-12"></div>
+        <div className="absolute top-5 left-1/3 w-4 h-2 bg-walnut-dark/40 rounded-full blur-sm transform -rotate-6"></div>
+        <div className="absolute top-2 right-1/4 w-3 h-4 bg-walnut-dark/50 rounded-full blur-sm transform rotate-45"></div>
+        <div className="absolute top-6 right-20 w-5 h-2 bg-walnut-dark/45 rounded-full blur-sm transform -rotate-12"></div>
+        <div className="absolute top-4 left-2/3 w-2 h-3 bg-walnut-dark/35 rounded-full blur-sm"></div>
+      </div>
 
       {/* Moss and Lichen Details */}
       <div className="absolute inset-0 opacity-20">

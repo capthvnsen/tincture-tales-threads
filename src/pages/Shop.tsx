@@ -1,79 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Search, Filter, ShoppingCart, Heart } from 'lucide-react';
+import { Search, Filter, ShoppingCart, Heart, AlertCircle } from 'lucide-react';
+import { useShopifyProducts } from '@/hooks/useShopifyProducts';
+import { ProductGridSkeleton } from '@/components/ProductSkeleton';
+import type { ShopifyProduct } from '@/types/shopify';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 
-// Sample product data - in a real app this would come from an API
-const sampleProducts = [
-  {
-    id: 1,
-    name: "Emerald Elven Capelet",
-    price: 125,
-    image: "/placeholder.svg",
-    category: "capelets",
-    description: "Flowing forest green capelet inspired by Celtic traditions",
-    isNew: true,
-    inStock: true
-  },
-  {
-    id: 2,
-    name: "Viking Leather Belt",
-    price: 65,
-    image: "/placeholder.svg", 
-    category: "accessories",
-    description: "Handcrafted leather belt with brass buckle",
-    isNew: false,
-    inStock: true
-  },
-  {
-    id: 3,
-    name: "Burgundy Renaissance Cloak",
-    price: 185,
-    image: "/placeholder.svg",
-    category: "capelets", 
-    description: "Full-length cloak perfect for grand occasions",
-    isNew: false,
-    inStock: false
-  },
-  {
-    id: 4,
-    name: "Celtic Knotwork Tabard",
-    price: 95,
-    image: "/placeholder.svg",
-    category: "tunics",
-    description: "Embroidered tabard with traditional Celtic designs",
-    isNew: true,
-    inStock: true
-  },
-  {
-    id: 5,
-    name: "Medieval Coin Purse",
-    price: 35,
-    image: "/placeholder.svg",
-    category: "accessories",
-    description: "Small leather purse with drawstring closure",
-    isNew: false,
-    inStock: true
-  },
-  {
-    id: 6,
-    name: "Dragon Scale Jewelry Set",
-    price: 75,
-    image: "/placeholder.svg",
-    category: "jewelry",
-    description: "Necklace and earrings with dragon scale design",
-    isNew: true,
-    inStock: true
-  }
-];
+// Category mapping from Shopify product types to our UI categories
+const categoryMapping: Record<string, string> = {
+  'Capelets': 'capelets',
+  'Accessories': 'accessories', 
+  'Tunics': 'tunics',
+  'Jewelry': 'jewelry',
+  'Cloaks': 'capelets',
+  'Belts': 'accessories',
+  'Tabards': 'tunics',
+};
 
 const Shop = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [sortBy, setSortBy] = useState('newest');
+  
+  // Fetch products from Shopify
+  const { data: shopifyProducts = [], isLoading, error, refetch } = useShopifyProducts();
 
   const categories = [
     { value: 'all', label: 'All Items' },
@@ -91,22 +45,32 @@ const Shop = () => {
   ];
 
   // Filter and sort products
-  const filteredProducts = sampleProducts
-    .filter(product => {
-      const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           product.description.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
-      return matchesSearch && matchesCategory;
-    })
-    .sort((a, b) => {
-      switch(sortBy) {
-        case 'price-low': return a.price - b.price;
-        case 'price-high': return b.price - a.price;
-        case 'name': return a.name.localeCompare(b.name);
-        case 'newest': 
-        default: return b.isNew ? 1 : -1;
-      }
-    });
+  const filteredProducts = useMemo(() => {
+    if (!shopifyProducts.length) return [];
+    
+    return shopifyProducts
+      .filter(product => {
+        const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                             product.description.toLowerCase().includes(searchTerm.toLowerCase());
+        
+        let matchesCategory = selectedCategory === 'all';
+        if (!matchesCategory) {
+          const mappedCategory = categoryMapping[product.category] || product.category.toLowerCase();
+          matchesCategory = mappedCategory === selectedCategory;
+        }
+        
+        return matchesSearch && matchesCategory;
+      })
+      .sort((a, b) => {
+        switch(sortBy) {
+          case 'price-low': return a.price - b.price;
+          case 'price-high': return b.price - a.price;
+          case 'name': return a.name.localeCompare(b.name);
+          case 'newest': 
+          default: return (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0);
+        }
+      });
+  }, [shopifyProducts, searchTerm, selectedCategory, sortBy]);
 
   return (
     <div className="min-h-screen py-8">
@@ -174,16 +138,31 @@ const Shop = () => {
           </div>
         </div>
 
+        {/* Error State */}
+        {error && (
+          <Alert className="mb-8">
+            <AlertCircle className="h-4 w-4" />
+            <AlertDescription>
+              Failed to load products. <button onClick={() => refetch()} className="underline">Try again</button>
+            </AlertDescription>
+          </Alert>
+        )}
+
         {/* Results Count */}
-        <div className="mb-8">
-          <p className="text-muted-foreground">
-            Showing {filteredProducts.length} of {sampleProducts.length} items
-          </p>
-        </div>
+        {!isLoading && !error && (
+          <div className="mb-8">
+            <p className="text-muted-foreground">
+              Showing {filteredProducts.length} of {shopifyProducts.length} items
+            </p>
+          </div>
+        )}
 
         {/* Products Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredProducts.map(product => (
+        {isLoading ? (
+          <ProductGridSkeleton />
+        ) : (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredProducts.map(product => (
             <Card key={product.id} className="medieval-card hover-lift group cursor-pointer">
               <div className="relative overflow-hidden rounded-t-lg">
                 <img 
@@ -219,7 +198,7 @@ const Shop = () => {
                 </p>
                 <div className="flex items-center justify-between">
                   <span className="text-xl font-bold text-foreground">
-                    ${product.price}
+                    ${product.price.toFixed(2)} {product.currencyCode}
                   </span>
                   <Button 
                     variant={product.inStock ? "medieval" : "outline"} 
@@ -239,11 +218,12 @@ const Shop = () => {
                 </div>
               </CardContent>
             </Card>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
         {/* Empty State */}
-        {filteredProducts.length === 0 && (
+        {!isLoading && !error && filteredProducts.length === 0 && (
           <div className="text-center py-16">
             <Filter className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-foreground mb-2">No items found</h3>

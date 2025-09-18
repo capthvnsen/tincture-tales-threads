@@ -157,73 +157,7 @@ const Navigation = () => {
       </div>
     </Button>;
 
-  return <nav className="fixed top-0 w-full z-50" style={{
-    background: 'linear-gradient(135deg, hsl(var(--walnut-dark)) 0%, hsl(var(--walnut-brown)) 25%, hsl(var(--walnut-medium)) 50%, hsl(var(--walnut-light)) 75%, hsl(var(--walnut-brown)) 100%)',
-    borderBottom: '4px solid hsl(var(--walnut-dark))',
-    boxShadow: 'var(--shadow-walnut)'
-  }}>
-      {/* Antique Walnut Wood Grain Texture */}
-      <div className="absolute inset-0 opacity-40" style={{
-        backgroundImage: `
-          repeating-linear-gradient(
-            90deg,
-            hsl(var(--walnut-dark) / 0.8) 0px,
-            hsl(var(--walnut-dark) / 0.9) 1px,
-            hsl(var(--walnut-brown) / 0.6) 1px,
-            hsl(var(--walnut-brown) / 0.8) 12px,
-            hsl(var(--walnut-medium) / 0.4) 12px,
-            hsl(var(--walnut-medium) / 0.7) 24px,
-            hsl(var(--walnut-light) / 0.3) 24px,
-            hsl(var(--walnut-light) / 0.6) 32px,
-            hsl(var(--walnut-brown) / 0.5) 32px,
-            hsl(var(--walnut-brown) / 0.8) 40px,
-            hsl(var(--walnut-dark) / 0.7) 40px,
-            hsl(var(--walnut-dark) / 0.9) 41px
-          ),
-          repeating-linear-gradient(
-            0deg,
-            transparent 0px,
-            hsl(var(--walnut-dark) / 0.15) 48px,
-            hsl(var(--walnut-dark) / 0.3) 50px,
-            transparent 50px
-          ),
-          linear-gradient(
-            45deg,
-            hsl(var(--walnut-dark) / 0.1) 0%,
-            transparent 25%,
-            hsl(var(--walnut-brown) / 0.1) 50%,
-            transparent 75%,
-            hsl(var(--walnut-dark) / 0.1) 100%
-          )
-        `
-      }} />
-
-      {/* Walnut Wood Knots and Character Marks */}
-      <div className="absolute inset-0 opacity-25">
-        <div className="absolute top-3 left-16 w-6 h-3 bg-walnut-dark/60 rounded-full blur-sm transform rotate-12"></div>
-        <div className="absolute top-5 left-1/3 w-4 h-2 bg-walnut-dark/40 rounded-full blur-sm transform -rotate-6"></div>
-        <div className="absolute top-2 right-1/4 w-3 h-4 bg-walnut-dark/50 rounded-full blur-sm transform rotate-45"></div>
-        <div className="absolute top-6 right-20 w-5 h-2 bg-walnut-dark/45 rounded-full blur-sm transform -rotate-12"></div>
-        <div className="absolute top-4 left-2/3 w-2 h-3 bg-walnut-dark/35 rounded-full blur-sm"></div>
-      </div>
-
-      {/* Moss and Lichen Details */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-2 left-8 w-3 h-1 bg-moss-green/40 rounded-full blur-sm"></div>
-        <div className="absolute top-4 right-12 w-2 h-1 bg-moss-green/30 rounded-full blur-sm"></div>
-        <div className="absolute bottom-1 left-1/4 w-4 h-1 bg-moss-green/35 rounded-full blur-sm"></div>
-        <div className="absolute bottom-2 right-1/3 w-2 h-1 bg-moss-green/25 rounded-full blur-sm"></div>
-      </div>
-      
-      {/* Wooden Shelf */}
-      <div className="absolute bottom-0 left-0 right-0 h-3 bg-gradient-to-b from-rustic-brown to-rustic-brown-dark opacity-80">
-        {/* Wood grain on shelf */}
-        <div className="absolute inset-0 bg-gradient-to-r from-rustic-brown-dark/20 via-transparent to-rustic-brown-dark/20"></div>
-        {/* Metal brackets */}
-        <div className="absolute bottom-0 left-8 w-1 h-2 bg-gradient-to-b from-slate-600 to-slate-800 rounded-t"></div>
-        <div className="absolute bottom-0 right-8 w-1 h-2 bg-gradient-to-b from-slate-600 to-slate-800 rounded-t"></div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-2 bg-gradient-to-b from-slate-600 to-slate-800 rounded-t"></div>
-      </div>
+  return <nav className="fixed top-0 w-full z-50 bg-slate-800 border-b border-slate-700">
 
       <div className="container mx-auto px-4 relative">
         <div className="flex items-center justify-between h-20">

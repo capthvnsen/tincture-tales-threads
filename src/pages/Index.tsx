@@ -48,11 +48,6 @@ const Index = () => {
               </Link>
             </Button>
             
-            <Button asChild variant="medieval" size="lg" className="text-lg px-8 py-3">
-              <Link to="/custom-orders">
-                Request Custom Piece
-              </Link>
-            </Button>
           </div>
         </div>
         

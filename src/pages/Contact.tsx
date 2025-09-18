@@ -190,12 +190,6 @@ const Contact = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div>
-                  <h4 className="font-semibold text-gold mb-2">How long do custom orders take?</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Simple items: 2-3 weeks, Complex outfits: 4-6 weeks. Rush orders available for additional fee.
-                  </p>
-                </div>
                 
                 <div>
                   <h4 className="font-semibold text-gold mb-2">Do you ship internationally?</h4>

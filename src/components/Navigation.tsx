@@ -19,11 +19,6 @@ const Navigation = () => {
     color: 'purple-potion',
     shape: 'teardrop'
   }, {
-    path: '/custom-orders',
-    label: 'Custom Orders',
-    color: 'sapphire-potion',
-    shape: 'conical'
-  }, {
     path: '/about',
     label: 'Our Story',
     color: 'amber-potion',

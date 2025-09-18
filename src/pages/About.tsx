@@ -225,11 +225,6 @@ const About = () => {
                 Explore Our Shop <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild variant="medieval" size="lg">
-              <Link to="/custom-orders">
-                Commission Custom Piece
-              </Link>
-            </Button>
           </div>
         </div>
       </div>

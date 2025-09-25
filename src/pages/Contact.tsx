@@ -1,37 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
-import { Mail, MapPin, Clock, Instagram, Facebook, Send } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import { Mail, MapPin, Clock, Instagram, Facebook } from 'lucide-react';
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // In a real app, this would send to an API
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. We'll get back to you within 1-2 business days.",
-    });
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' });
-  };
-
   return (
     <div className="min-h-screen py-8">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -45,113 +19,85 @@ const Contact = () => {
             Contact Our Guild
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            We'd love to hear from you! Whether you have questions about our pieces, 
-            need help with an order, or want to discuss a custom commission, we're here to help.
+            Ready to connect? We'd love to hear from you! Drop us an email or send us a DM on Instagram - 
+            we're always excited to chat about our pieces, answer questions, or discuss custom commissions.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-12 max-w-4xl mx-auto">
           
-          {/* Contact Form */}
+          {/* Contact Methods */}
           <Card className="medieval-card">
             <CardHeader>
               <CardTitle className="text-2xl medieval-heading">
-                Send Us a Message
+                Let's Connect!
               </CardTitle>
             </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Your Name *</Label>
-                    <Input
-                      id="name"
-                      value={formData.name}
-                      onChange={(e) => handleInputChange('name', e.target.value)}
-                      className="medieval-input"
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email Address *</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => handleInputChange('email', e.target.value)}
-                      className="medieval-input"
-                      required
-                    />
-                  </div>
+            <CardContent className="space-y-6">
+              <div className="flex items-start space-x-4">
+                <Mail className="h-6 w-6 text-gold mt-1" />
+                <div>
+                  <h3 className="font-semibold text-foreground">Email Us</h3>
+                  <p className="text-muted-foreground mb-2">tincturesoddsandends@gmail.com</p>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="hover:text-gold"
+                    onClick={() => window.open('mailto:tincturesoddsandends@gmail.com')}
+                  >
+                    <Mail className="h-4 w-4 mr-2" />
+                    Send Email
+                  </Button>
                 </div>
+              </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="subject">Subject *</Label>
-                  <Input
-                    id="subject"
-                    value={formData.subject}
-                    onChange={(e) => handleInputChange('subject', e.target.value)}
-                    placeholder="What can we help you with?"
-                    className="medieval-input"
-                    required
-                  />
+              <div className="flex items-start space-x-4">
+                <Instagram className="h-6 w-6 text-gold mt-1" />
+                <div>
+                  <h3 className="font-semibold text-foreground">Instagram DM</h3>
+                  <p className="text-muted-foreground mb-2">Quick responses & behind-the-scenes content</p>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="hover:text-gold"
+                    onClick={() => window.open('https://instagram.com/tincturesoddsandends', '_blank')}
+                  >
+                    <Instagram className="h-4 w-4 mr-2" />
+                    Send DM
+                  </Button>
                 </div>
+              </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message *</Label>
-                  <Textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) => handleInputChange('message', e.target.value)}
-                    placeholder="Tell us more about how we can help you..."
-                    className="medieval-input min-h-[150px]"
-                    required
-                  />
+              <div className="flex items-start space-x-4">
+                <Clock className="h-6 w-6 text-gold mt-1" />
+                <div>
+                  <h3 className="font-semibold text-foreground">Response Time</h3>
+                  <p className="text-muted-foreground">1-2 business days</p>
+                  <p className="text-sm text-muted-foreground">Monday - Friday</p>
                 </div>
-
-                <Button type="submit" variant="gold" size="lg" className="w-full">
-                  <Send className="h-5 w-5 mr-2" />
-                  Send Message
-                </Button>
-              </form>
+              </div>
             </CardContent>
           </Card>
 
-          {/* Contact Information & FAQ */}
+          {/* Location & Social */}
           <div className="space-y-8">
             
-            {/* Contact Details */}
+            {/* Location */}
             <Card className="medieval-card">
               <CardHeader>
                 <CardTitle className="text-xl medieval-heading">
-                  Get in Touch
+                  Our Workshop
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <Mail className="h-6 w-6 text-gold mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-foreground">Email Us</h3>
-                    <p className="text-muted-foreground">tincturesoddsandends@gmail.com</p>
-                    <p className="text-sm text-muted-foreground">We respond within 1-2 business days</p>
-                  </div>
-                </div>
-
+              <CardContent>
                 <div className="flex items-start space-x-4">
                   <MapPin className="h-6 w-6 text-gold mt-1" />
                   <div>
-                    <h3 className="font-semibold text-foreground">Location</h3>
-                    <p className="text-muted-foreground">Salt Lake City, Utah</p>
-                    <p className="text-sm text-muted-foreground">Handcrafted locally with love</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <Clock className="h-6 w-6 text-gold mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-foreground">Response Time</h3>
-                    <p className="text-muted-foreground">1-2 business days</p>
-                    <p className="text-sm text-muted-foreground">Monday - Friday</p>
+                    <h3 className="font-semibold text-foreground">Salt Lake City, Utah</h3>
+                    <p className="text-muted-foreground">Handcrafted locally with love</p>
+                    <p className="text-sm text-muted-foreground mt-2">
+                      Workshop visits by appointment only - reach out to arrange a visit!
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -170,7 +116,12 @@ const Contact = () => {
                   and community adventures!
                 </p>
                 <div className="flex space-x-4">
-                  <Button variant="outline" size="sm" className="hover:text-gold">
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="hover:text-gold"
+                    onClick={() => window.open('https://instagram.com/tincturesoddsandends', '_blank')}
+                  >
                     <Instagram className="h-4 w-4 mr-2" />
                     Instagram
                   </Button>
@@ -178,38 +129,6 @@ const Contact = () => {
                     <Facebook className="h-4 w-4 mr-2" />
                     Facebook
                   </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Quick FAQ */}
-            <Card className="medieval-card">
-              <CardHeader>
-                <CardTitle className="text-xl medieval-heading">
-                  Quick Questions
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                
-                <div>
-                  <h4 className="font-semibold text-gold mb-2">Do you ship internationally?</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Currently we ship within the United States. International shipping coming soon!
-                  </p>
-                </div>
-                
-                <div>
-                  <h4 className="font-semibold text-gold mb-2">Can I visit your workshop?</h4>
-                  <p className="text-sm text-muted-foreground">
-                    We operate by appointment only. Contact us to arrange a visit to our Salt Lake City workshop.
-                  </p>
-                </div>
-                
-                <div>
-                  <h4 className="font-semibold text-gold mb-2">Do you attend Renaissance fairs?</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Yes! Follow us on social media for our upcoming fair appearances and convention booths.
-                  </p>
                 </div>
               </CardContent>
             </Card>

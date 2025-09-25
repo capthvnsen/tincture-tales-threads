@@ -132,7 +132,7 @@ const Contact = () => {
                   <Mail className="h-6 w-6 text-gold mt-1" />
                   <div>
                     <h3 className="font-semibold text-foreground">Email Us</h3>
-                    <p className="text-muted-foreground">contact@tincturesoddsends.com</p>
+                    <p className="text-muted-foreground">tincturesoddsandends@gmail.com</p>
                     <p className="text-sm text-muted-foreground">We respond within 1-2 business days</p>
                   </div>
                 </div>

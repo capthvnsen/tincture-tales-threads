@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Leaf, Heart, Shield, Sparkles, ArrowRight } from 'lucide-react';
 
 // Import the generated images
-import heroImage from '@/assets/hero-marketplace.jpg';
+import heroImage from '@/assets/hero-new.png';
 import capeletsImage from '@/assets/capelets-collection.jpg';
 import accessoriesImage from '@/assets/accessories-collection.jpg';
 import founderImage from '@/assets/founder-portrait.jpg';

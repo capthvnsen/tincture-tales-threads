@@ -60,7 +60,7 @@ const Contact = () => {
                     variant="outline" 
                     size="sm" 
                     className="hover:text-gold"
-                    onClick={() => window.open('https://instagram.com/tincturesoddsandends', '_blank')}
+                    onClick={() => window.open('https://www.instagram.com/tincturesoddsandends?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', '_blank')}
                   >
                     <Instagram className="h-4 w-4 mr-2" />
                     Send DM
@@ -120,7 +120,7 @@ const Contact = () => {
                     variant="outline" 
                     size="sm" 
                     className="hover:text-gold"
-                    onClick={() => window.open('https://instagram.com/tincturesoddsandends', '_blank')}
+                    onClick={() => window.open('https://www.instagram.com/tincturesoddsandends?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', '_blank')}
                   >
                     <Instagram className="h-4 w-4 mr-2" />
                     Instagram

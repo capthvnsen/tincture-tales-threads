@@ -94,7 +94,7 @@ const Footer = () => {
         <div className="border-t border-gold/30 pt-6 mt-6">
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <div className="flex space-x-4 mb-4 sm:mb-0">
-              <a href="#" className="text-foreground/60 hover:text-gold transition-colors">
+              <a href="https://www.instagram.com/tincturesoddsandends?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-gold transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
               <a href="#" className="text-foreground/60 hover:text-gold transition-colors">

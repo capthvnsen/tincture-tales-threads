@@ -7,19 +7,16 @@ import { Leaf, Heart, Shield, Sparkles, ArrowRight } from 'lucide-react';
 
 // Import the generated images
 import heroImage from '@/assets/hero-new.png';
-import capeletsImage from '@/assets/capelets-new-image.svg';
+import capeletsImage from '@/assets/capelets-collection.jpg';
 import accessoriesImage from '@/assets/accessories-collection.jpg';
 import founderImage from '@/assets/founder-portrait.jpg';
-
 const Index = () => {
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        >
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
+        backgroundImage: `url(${heroImage})`
+      }}>
           <div className="absolute inset-0 bg-black/50" />
         </div>
         
@@ -42,19 +39,23 @@ const Index = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              asChild 
-              size="lg" 
-              className="relative text-lg px-8 py-3 bg-gradient-to-br from-purple-900 to-black text-white border-2 border-purple-600 hover:from-purple-800 hover:to-gray-900 transition-all duration-300 shadow-lg hover:shadow-purple-500/50 overflow-hidden group"
-            >
+            <Button asChild size="lg" className="relative text-lg px-8 py-3 bg-gradient-to-br from-purple-900 to-black text-white border-2 border-purple-600 hover:from-purple-800 hover:to-gray-900 transition-all duration-300 shadow-lg hover:shadow-purple-500/50 overflow-hidden group">
               <Link to="/shop">
                 {/* Bubble effects */}
                 <div className="absolute inset-0 pointer-events-none">
                   <div className="absolute top-2 left-3 w-2 h-2 bg-purple-300/60 rounded-full animate-pulse"></div>
-                  <div className="absolute top-4 right-4 w-1 h-1 bg-white/40 rounded-full animate-bounce" style={{animationDelay: '0.5s'}}></div>
-                  <div className="absolute bottom-3 left-6 w-1.5 h-1.5 bg-purple-200/50 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
-                  <div className="absolute top-6 left-1/2 w-1 h-1 bg-white/30 rounded-full animate-bounce" style={{animationDelay: '1.5s'}}></div>
-                  <div className="absolute bottom-4 right-6 w-2 h-2 bg-purple-400/40 rounded-full animate-pulse" style={{animationDelay: '2s'}}></div>
+                  <div className="absolute top-4 right-4 w-1 h-1 bg-white/40 rounded-full animate-bounce" style={{
+                  animationDelay: '0.5s'
+                }}></div>
+                  <div className="absolute bottom-3 left-6 w-1.5 h-1.5 bg-purple-200/50 rounded-full animate-pulse" style={{
+                  animationDelay: '1s'
+                }}></div>
+                  <div className="absolute top-6 left-1/2 w-1 h-1 bg-white/30 rounded-full animate-bounce" style={{
+                  animationDelay: '1.5s'
+                }}></div>
+                  <div className="absolute bottom-4 right-6 w-2 h-2 bg-purple-400/40 rounded-full animate-pulse" style={{
+                  animationDelay: '2s'
+                }}></div>
                 </div>
                 <span className="relative z-10">Shop Now</span>
                 <ArrowRight className="ml-2 h-5 w-5 relative z-10" />
@@ -88,11 +89,7 @@ const Index = () => {
             {/* Capelets Collection */}
             <Card className="medieval-card hover-lift cursor-pointer group">
               <div className="relative overflow-hidden rounded-t-lg">
-                <img 
-                  src={capeletsImage} 
-                  alt="Capelets Collection" 
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+                <img src={capeletsImage} alt="Capelets Collection" className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
                 <Badge className="absolute top-4 left-4 bg-burgundy text-white">
                   New Arrivals
@@ -112,30 +109,7 @@ const Index = () => {
             </Card>
 
             {/* Accessories Collection */}
-            <Card className="medieval-card hover-lift cursor-pointer group">
-              <div className="relative overflow-hidden rounded-t-lg">
-                <img 
-                  src={accessoriesImage} 
-                  alt="Accessories Collection" 
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                <Badge className="absolute top-4 left-4 bg-forest-green text-white">
-                  Handcrafted
-                </Badge>
-              </div>
-              <CardContent className="p-6">
-                <h3 className="text-2xl font-bold text-gold mb-3">Bags, Belts & More</h3>
-                <p className="text-foreground/80 mb-4">
-                  Complete your look with authentic accessories. Tabards, jewelry, and practical pieces for any adventure.
-                </p>
-                <Button asChild variant="outline" className="w-full">
-                  <Link to="/shop?category=accessories">
-                    View Accessories <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
+            
           </div>
         </div>
       </section>
@@ -226,11 +200,7 @@ const Index = () => {
             
             <div className="relative">
               <div className="medieval-scroll">
-                <img 
-                  src={founderImage} 
-                  alt="Founder in her workshop" 
-                  className="w-full h-96 object-cover rounded-lg shadow-2xl"
-                />
+                <img src={founderImage} alt="Founder in her workshop" className="w-full h-96 object-cover rounded-lg shadow-2xl" />
               </div>
               <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gold/20 rounded-full flex items-center justify-center backdrop-blur-sm">
                 <Sparkles className="h-12 w-12 text-gold" />
@@ -252,11 +222,7 @@ const Index = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-6 py-3 bg-card border border-gold/30 rounded-lg focus:outline-none focus:border-gold text-foreground text-lg"
-            />
+            <input type="email" placeholder="Enter your email" className="flex-1 px-6 py-3 bg-card border border-gold/30 rounded-lg focus:outline-none focus:border-gold text-foreground text-lg" />
             <Button variant="gold" size="lg" className="px-8">
               Join Guild
             </Button>
@@ -267,8 +233,6 @@ const Index = () => {
           </p>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;

@@ -5,8 +5,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Leaf, Heart, Shield, Sparkles, ArrowRight } from 'lucide-react';
 
-// Import the images
-import capletsCloaksLogo from '@/assets/caplets-cloaks-logo.svg';
+// Import the generated images
+import heroImage from '@/assets/hero-new.png';
 import capeletsImage from '@/assets/capelets-collection.jpg';
 import accessoriesImage from '@/assets/accessories-collection.jpg';
 import founderImage from '@/assets/founder-portrait.jpg';
@@ -15,16 +15,12 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-900 via-gray-900 to-black">
-        <div className="absolute inset-0 bg-black/50" />
-        
-        {/* Logo */}
-        <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <img 
-            src={capletsCloaksLogo} 
-            alt="Caplets & Cloaks Logo" 
-            className="w-96 h-auto opacity-90"
-          />
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        >
+          <div className="absolute inset-0 bg-black/50" />
         </div>
         
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">

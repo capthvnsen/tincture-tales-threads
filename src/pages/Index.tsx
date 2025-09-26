@@ -9,7 +9,7 @@ import { Leaf, Heart, Shield, Sparkles, ArrowRight } from 'lucide-react';
 import heroImage from '@/assets/hero-new.png';
 import capeletsImage from '@/assets/capelets-updated-image.svg';
 import accessoriesImage from '@/assets/accessories-collection.jpg';
-import founderImage from '@/assets/founder-portrait.jpg';
+import founderImage from '@/assets/ashlee-founder-photo.jpg';
 const Index = () => {
   return <div className="min-h-screen">
       {/* Hero Section */}

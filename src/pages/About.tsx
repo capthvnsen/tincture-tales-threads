@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { Heart, Leaf, Shield, MapPin, Sparkles, ArrowRight } from 'lucide-react';
 
 // Import the founder image
-import founderImage from '@/assets/founder-portrait.jpg';
+import founderImage from '@/assets/ashlee-founder-photo.jpg';
 
 const About = () => {
   return (

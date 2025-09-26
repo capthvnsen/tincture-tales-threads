@@ -7,7 +7,7 @@ import { Leaf, Heart, Shield, Sparkles, ArrowRight } from 'lucide-react';
 
 // Import the generated images
 import heroImage from '@/assets/hero-new.png';
-import capeletsImage from '@/assets/capelets-collection.jpg';
+import capeletsImage from '@/assets/capelets-updated-image.svg';
 import accessoriesImage from '@/assets/accessories-collection.jpg';
 import founderImage from '@/assets/founder-portrait.jpg';
 const Index = () => {

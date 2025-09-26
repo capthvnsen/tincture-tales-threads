@@ -42,9 +42,22 @@ const Index = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild variant="gold" size="lg" className="text-lg px-8 py-3">
+            <Button 
+              asChild 
+              size="lg" 
+              className="relative text-lg px-8 py-3 bg-gradient-to-br from-purple-900 to-black text-white border-2 border-purple-600 hover:from-purple-800 hover:to-gray-900 transition-all duration-300 shadow-lg hover:shadow-purple-500/50 overflow-hidden group"
+            >
               <Link to="/shop">
-                Shop Now <ArrowRight className="ml-2 h-5 w-5" />
+                {/* Bubble effects */}
+                <div className="absolute inset-0 pointer-events-none">
+                  <div className="absolute top-2 left-3 w-2 h-2 bg-purple-300/60 rounded-full animate-pulse"></div>
+                  <div className="absolute top-4 right-4 w-1 h-1 bg-white/40 rounded-full animate-bounce" style={{animationDelay: '0.5s'}}></div>
+                  <div className="absolute bottom-3 left-6 w-1.5 h-1.5 bg-purple-200/50 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+                  <div className="absolute top-6 left-1/2 w-1 h-1 bg-white/30 rounded-full animate-bounce" style={{animationDelay: '1.5s'}}></div>
+                  <div className="absolute bottom-4 right-6 w-2 h-2 bg-purple-400/40 rounded-full animate-pulse" style={{animationDelay: '2s'}}></div>
+                </div>
+                <span className="relative z-10">Shop Now</span>
+                <ArrowRight className="ml-2 h-5 w-5 relative z-10" />
               </Link>
             </Button>
             

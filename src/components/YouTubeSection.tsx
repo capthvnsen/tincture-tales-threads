@@ -4,7 +4,7 @@ import { ExternalLink, Play } from "lucide-react";
 
 const YouTubeSection = () => {
   // Update this video ID when you have a new latest video
-  const latestVideoId = "dQw4w9WgXcQ"; // Replace with actual latest video ID
+  const latestVideoId = "qOu7R-6HcQc"; // Replace with actual latest video ID
   const [isLoaded, setIsLoaded] = useState(false);
 
   const handleLoadVideo = () => {

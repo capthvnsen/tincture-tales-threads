@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Leaf, Heart, Shield, Sparkles, ArrowRight } from 'lucide-react';
+import YouTubeSection from '@/components/YouTubeSection';
 
 // Import the generated images
 import heroImage from '@/assets/hero-new.png';
@@ -11,7 +12,8 @@ import capeletsImage from '@/assets/capelets-updated-image.svg';
 import accessoriesImage from '@/assets/accessories-collection.jpg';
 import founderImage from '@/assets/ashlee-founder-photo.jpg';
 const Index = () => {
-  return <div className="min-h-screen">
+  return (
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
@@ -210,6 +212,11 @@ const Index = () => {
         </div>
       </section>
 
-    </div>;
+      {/* YouTube Video Section */}
+      <YouTubeSection />
+
+    </div>
+  );
 };
+
 export default Index;

@@ -28,7 +28,7 @@ const Index = () => {
             ✨ Handcrafted • Sustainable • Historic ✨
           </Badge>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 medieval-heading text-glow">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 medieval-heading text-glow text-white">
             Tinctures, Odds, & Ends
           </h1>
           

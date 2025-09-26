@@ -85,7 +85,7 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="flex justify-center max-w-5xl mx-auto">
             {/* Capelets Collection */}
             <Card className="medieval-card hover-lift cursor-pointer group">
               <div className="relative overflow-hidden rounded-t-lg">

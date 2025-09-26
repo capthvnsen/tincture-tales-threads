@@ -70,25 +70,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Newsletter Signup */}
-        <div className="border-t border-gold/30 pt-8 mt-8">
-          <div className="text-center mb-6">
-            <h4 className="text-lg font-semibold text-gold mb-2">Join Our Guild</h4>
-            <p className="text-foreground/80 mb-4">
-              Receive updates on new arrivals, upcoming conventions, and special offers
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-2 bg-input border border-gold/30 rounded-lg focus:outline-none focus:border-gold text-foreground"
-              />
-              <button className="btn-gold px-6 py-2 whitespace-nowrap">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
 
         {/* Social & Copyright */}
         <div className="border-t border-gold/30 pt-6 mt-6">

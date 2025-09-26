@@ -210,29 +210,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Newsletter Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-burgundy/20 to-gold/20">
-        <div className="container mx-auto text-center max-w-4xl">
-          <h2 className="text-4xl font-bold medieval-heading mb-4">
-            Join Our Guild of Adventurers
-          </h2>
-          <p className="text-xl text-foreground/80 mb-8">
-            Don't miss our new launches! Get monthly updates on fresh creations, convention appearances, 
-            and special offers for guild members.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8">
-            <input type="email" placeholder="Enter your email" className="flex-1 px-6 py-3 bg-card border border-gold/30 rounded-lg focus:outline-none focus:border-gold text-foreground text-lg" />
-            <Button variant="gold" size="lg" className="px-8">
-              Join Guild
-            </Button>
-          </div>
-          
-          <p className="text-sm text-foreground/60">
-            No spam, just magical updates. Unsubscribe anytime.
-          </p>
-        </div>
-      </section>
     </div>;
 };
 export default Index;

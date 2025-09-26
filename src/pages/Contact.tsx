@@ -135,29 +135,6 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Newsletter Signup */}
-        <div className="mt-16 text-center p-8 medieval-card">
-          <h2 className="text-2xl font-bold medieval-heading mb-4">
-            Join Our Guild Newsletter
-          </h2>
-          <p className="text-foreground/80 mb-6 max-w-2xl mx-auto">
-            Get monthly updates on new arrivals, upcoming convention appearances, 
-            behind-the-scenes content, and special offers for guild members.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <Input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 medieval-input"
-            />
-            <Button variant="medieval" className="px-8">
-              Join Guild
-            </Button>
-          </div>
-          <p className="text-sm text-muted-foreground mt-4">
-            No spam, just magical updates. Unsubscribe anytime.
-          </p>
-        </div>
       </div>
     </div>
   );

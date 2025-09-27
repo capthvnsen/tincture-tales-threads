@@ -24,7 +24,7 @@ const Index = () => {
         
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <Badge variant="secondary" className="mb-6 text-lg px-6 py-2">
-            ✨ Handcrafted • Sustainable • Historic ✨
+            ✨ Handcrafted • Sustainable • Historically Inspired ✨
           </Badge>
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6 medieval-heading text-glow text-white">
@@ -124,7 +124,7 @@ const Index = () => {
               The Trifecta of Values
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We believe you shouldn't have to compromise on modesty, sustainability, or historical accuracy. 
+              We believe you shouldn't have to compromise on modesty, sustainability, or historical inspiration. 
               That's why every piece we create honors all three.
             </p>
           </div>
@@ -164,7 +164,7 @@ const Index = () => {
                 <div className="w-16 h-16 bg-burgundy/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Shield className="h-8 w-8 text-burgundy" />
                 </div>
-                <h3 className="text-xl font-bold text-gold mb-4">Modest & Historic</h3>
+                <h3 className="text-xl font-bold text-gold mb-4">Modest & Historically Inspired</h3>
                 <p className="text-foreground/80 leading-relaxed">
                   Designs inspired by Celtic, Viking, German, and English heritage. 
                   Authentic silhouettes that provide comfort and coverage for any adventure.

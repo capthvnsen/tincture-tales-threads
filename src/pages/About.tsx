@@ -52,13 +52,13 @@ const About = () => {
                 For as long as I can remember, I've had a passion for high fantasy and the cultures 
                 of my ancestors – Celtic, Viking, German, and English. As I found my fantasy community, 
                 I loved attending Renaissance Fairs and other costume events, but I struggled to find 
-                costume-wear that was modest, sustainable, and historically accurate.
+                costume-wear that was modest, sustainable, and historically inspired.
               </p>
               
               <p>
                 I was done missing out on events because I couldn't find clothing I was satisfied with. 
                 I refused to compromise my values by shopping fast fashion or settling for less modest pieces. 
-                It seemed that perfect trifecta – modest, sustainable, historically accurate – would elude me 
+                It seemed that perfect trifecta – modest, sustainable, historically inspired – would elude me 
                 everywhere I shopped.
               </p>
               
@@ -167,10 +167,10 @@ const About = () => {
                 <div className="w-16 h-16 bg-burgundy/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Shield className="h-8 w-8 text-burgundy" />
                 </div>
-                <h3 className="text-xl font-bold text-gold mb-4">Modest & Historic</h3>
+                <h3 className="text-xl font-bold text-gold mb-4">Modest & Historically Inspired</h3>
                 <div className="text-foreground/80 leading-relaxed space-y-3">
                   <p>
-                    Our designs draw inspiration from Celtic, Viking, German, and English historical clothing, 
+                    Our designs draw inspiration from Celtic, Viking, German, and English historically inspired clothing, 
                     ensuring authenticity in both look and feel.
                   </p>
                   <p>

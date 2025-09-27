@@ -17,10 +17,16 @@ const YouTubeSection = () => {
             variant="outline" 
             size="lg" 
             className="gap-2"
-            onClick={() => window.open("https://www.youtube.com/@TincturesOddsandEnds", "_blank")}
+            asChild
           >
-            <ExternalLink className="w-4 h-4" />
-            Visit Our YouTube Channel
+            <a 
+              href="https://www.youtube.com/@TincturesOddsandEnds" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <ExternalLink className="w-4 h-4" />
+              Visit Our YouTube Channel
+            </a>
           </Button>
         </div>
       </div>

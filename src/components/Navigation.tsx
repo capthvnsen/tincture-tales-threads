@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ShoppingCart, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { CartDrawer } from '@/components/CartDrawer';
 import logoImage from '/lovable-uploads/8be59ab0-b5af-4d86-8c0f-a2ed527d5404.png';
 const Navigation = () => {
   const location = useLocation();
@@ -126,31 +127,6 @@ const Navigation = () => {
         {item.label}
       </div>
     </Link>;
-  const WoodBasket = () => <Button variant="ghost" size="icon" className="group relative text-moss-green hover:text-moss-green-light transition-all duration-300 hover:-translate-y-1">
-      {/* Basket Shadow */}
-      <div className="absolute inset-0 rounded-full bg-rustic-brown-dark/0 group-hover:bg-rustic-brown-dark/20 blur-md transition-all duration-300" />
-      
-      {/* Woven Basket */}
-      <div className="relative">
-        <div className="w-8 h-6 bg-gradient-to-b from-rustic-brown-light to-rustic-brown rounded-b-lg border border-rustic-brown-dark/70 group-hover:border-rustic-brown-dark transition-all duration-300">
-          {/* Woven texture */}
-          <div className="absolute inset-0 opacity-40">
-            <div className="absolute inset-0 bg-gradient-to-r from-rustic-brown-dark/20 via-transparent to-rustic-brown-dark/20"></div>
-            <div className="absolute top-1 left-0 right-0 h-0.5 bg-rustic-brown-dark/30"></div>
-            <div className="absolute top-3 left-0 right-0 h-0.5 bg-rustic-brown-dark/30"></div>
-          </div>
-          
-          {/* Basket handles */}
-          <div className="absolute left-0 top-0 w-1 h-4 border-l-2 border-rustic-brown-dark/60 rounded-l group-hover:border-rustic-brown-dark transition-all duration-300" />
-          <div className="absolute right-0 top-0 w-1 h-4 border-r-2 border-rustic-brown-dark/60 rounded-r group-hover:border-rustic-brown-dark transition-all duration-300" />
-        </div>
-        
-        {/* Cart contents indicator */}
-        <div className="absolute -top-1 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="w-1 h-1 bg-moss-green rounded-full animate-pulse" />
-        </div>
-      </div>
-    </Button>;
 
   return <nav className="fixed top-0 w-full z-50 bg-slate-800 border-b border-slate-700">
 
@@ -165,9 +141,9 @@ const Navigation = () => {
           <div className="hidden md:flex items-end space-x-6 pb-4">
             {navItems.map(item => <PotionBottle key={item.path} item={item} isActive={isActive(item.path)} />)}
             
-            {/* Wood Basket Cart */}
+            {/* Cart Drawer */}
             <div className="ml-4">
-              <WoodBasket />
+              <CartDrawer />
             </div>
           </div>
 
@@ -186,10 +162,7 @@ const Navigation = () => {
                   {item.label}
                 </Link>)}
               <div className="pt-2 border-t border-moss-green/30">
-                <Button variant="ghost" size="sm" className="text-moss-green hover:text-moss-green-light">
-                  <ShoppingCart className="h-5 w-5 mr-2" />
-                  Cart
-                </Button>
+                <CartDrawer />
               </div>
             </div>
           </div>}

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { ShopifyService } from "@/services/shopifyService";
-import type { ShopifyProduct } from "@/types/shopify";
+import type { LegacyShopifyProduct } from "@/types/shopify";
 
 export const useShopifyProducts = (searchTerm?: string) => {
   return useQuery({

@@ -7,8 +7,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Search, Filter, ShoppingCart, Heart, AlertCircle } from 'lucide-react';
 import { useShopifyProducts } from '@/hooks/useShopifyProducts';
 import { ProductGridSkeleton } from '@/components/ProductSkeleton';
-import type { ShopifyProduct } from '@/types/shopify';
+import type { LegacyShopifyProduct } from '@/types/shopify';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import { useCartStore } from '@/stores/cartStore';
+import { toast } from 'sonner';
 
 // Category mapping from Shopify product types to our UI categories
 const categoryMapping: Record<string, string> = {
@@ -25,9 +27,72 @@ const Shop = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [sortBy, setSortBy] = useState('newest');
+  const addItem = useCartStore(state => state.addItem);
   
   // Fetch products from Shopify
   const { data: shopifyProducts = [], isLoading, error, refetch } = useShopifyProducts();
+
+  const handleAddToCart = (product: LegacyShopifyProduct) => {
+    if (!product.variants || product.variants.length === 0) {
+      toast.error("Product unavailable", {
+        description: "This product has no variants available"
+      });
+      return;
+    }
+
+    const firstVariant = product.variants[0];
+    
+    addItem({
+      product: {
+        node: {
+          id: product.id,
+          title: product.name,
+          description: product.description,
+          handle: product.handle,
+          productType: product.category,
+          tags: product.tags,
+          priceRange: {
+            minVariantPrice: {
+              amount: product.price.toString(),
+              currencyCode: product.currencyCode
+            }
+          },
+          images: {
+            edges: product.images.map(url => ({
+              node: { url, altText: product.name }
+            }))
+          },
+          variants: {
+            edges: product.variants.map(v => ({
+              node: {
+                id: v.id,
+                title: v.title,
+                price: {
+                  amount: v.price.toString(),
+                  currencyCode: product.currencyCode
+                },
+                availableForSale: v.available,
+                selectedOptions: []
+              }
+            }))
+          },
+          options: []
+        }
+      },
+      variantId: firstVariant.id,
+      variantTitle: firstVariant.title,
+      price: {
+        amount: firstVariant.price.toString(),
+        currencyCode: product.currencyCode
+      },
+      quantity: 1,
+      selectedOptions: []
+    });
+
+    toast.success("Added to cart", {
+      description: `${product.name} has been added to your cart`
+    });
+  };
 
   const categories = [
     { value: 'all', label: 'All Items' },
@@ -205,6 +270,7 @@ const Shop = () => {
                     size="sm"
                     disabled={!product.inStock}
                     className="min-w-[100px]"
+                    onClick={() => handleAddToCart(product)}
                   >
                     {product.inStock ? (
                       <>

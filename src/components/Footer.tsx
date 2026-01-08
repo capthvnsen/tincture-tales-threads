@@ -86,7 +86,7 @@ const Footer = () => {
               </a>
             </div>
             <p className="text-foreground/60 text-sm">
-              © 2024 Tinctures, Odds, & Ends. All rights reserved.
+              © {new Date().getFullYear()} Tinctures, Odds, & Ends. All rights reserved.
             </p>
           </div>
         </div>

@@ -1,10 +1,11 @@
 import React, { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Search, Filter, ShoppingCart, Heart, AlertCircle } from 'lucide-react';
+import { Search, Filter, ShoppingCart, AlertCircle } from 'lucide-react';
 import { useShopifyProducts } from '@/hooks/useShopifyProducts';
 import { ProductGridSkeleton } from '@/components/ProductSkeleton';
 import type { LegacyShopifyProduct } from '@/types/shopify';
@@ -138,7 +139,7 @@ const Shop = () => {
   }, [shopifyProducts, searchTerm, selectedCategory, sortBy]);
 
   return (
-    <div className="min-h-screen py-8">
+    <div className="min-h-screen pt-24 pb-8">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
@@ -229,35 +230,30 @@ const Shop = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredProducts.map(product => (
             <Card key={product.id} className="medieval-card hover-lift group cursor-pointer">
-              <div className="relative overflow-hidden rounded-t-lg">
-                <img 
-                  src={product.image} 
-                  alt={product.name}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute top-2 left-2 flex gap-2">
-                  {product.isNew && (
-                    <Badge className="bg-burgundy text-white">New</Badge>
-                  )}
-                  {!product.inStock && (
-                    <Badge variant="secondary">Out of Stock</Badge>
-                  )}
+              <Link to={`/product/${product.handle}`}>
+                <div className="relative overflow-hidden rounded-t-lg">
+                  <img 
+                    src={product.image} 
+                    alt={product.name}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-2 left-2 flex gap-2">
+                    {product.isNew && (
+                      <Badge className="bg-burgundy text-white">New</Badge>
+                    )}
+                    {!product.inStock && (
+                      <Badge variant="secondary">Out of Stock</Badge>
+                    )}
+                  </div>
                 </div>
-                
-                {/* Wishlist button */}
-                <Button 
-                  variant="ghost" 
-                  size="icon"
-                  className="absolute top-2 right-2 bg-background/80 hover:bg-background text-muted-foreground hover:text-burgundy"
-                >
-                  <Heart className="h-4 w-4" />
-                </Button>
-              </div>
+              </Link>
               
               <CardContent className="p-4">
-                <h3 className="font-semibold text-lg text-gold mb-2 line-clamp-1">
-                  {product.name}
-                </h3>
+                <Link to={`/product/${product.handle}`}>
+                  <h3 className="font-semibold text-lg text-gold mb-2 line-clamp-1 hover:underline">
+                    {product.name}
+                  </h3>
+                </Link>
                 <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
                   {product.description}
                 </p>
@@ -270,7 +266,10 @@ const Shop = () => {
                     size="sm"
                     disabled={!product.inStock}
                     className="min-w-[100px]"
-                    onClick={() => handleAddToCart(product)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleAddToCart(product);
+                    }}
                   >
                     {product.inStock ? (
                       <>
@@ -317,9 +316,11 @@ const Shop = () => {
           <p className="text-foreground/80 mb-6">
             We create custom pieces tailored to your vision. Commission a unique item just for you!
           </p>
-          <Button variant="gold" size="lg">
-            Request Custom Piece
-          </Button>
+          <Link to="/contact">
+            <Button variant="gold" size="lg">
+              Request Custom Piece
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

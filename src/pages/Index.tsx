@@ -6,9 +6,9 @@ import { Badge } from '@/components/ui/badge';
 import { Leaf, Heart, Shield, Sparkles, ArrowRight } from 'lucide-react';
 import YouTubeSection from '@/components/YouTubeSection';
 
-// Import the generated images
-import heroImage from '@/assets/hero-new.png';
-import capeletsImage from '@/assets/capelets-updated-image.svg';
+// Import the generated images (optimized WebP)
+import heroImage from '@/assets/hero-new.webp';
+import capeletsImage from '@/assets/capelets-updated-image.webp';
 import accessoriesImage from '@/assets/accessories-collection.jpg';
 import founderImage from '@/assets/ashlee-founder-photo.jpg';
 const Index = () => {
